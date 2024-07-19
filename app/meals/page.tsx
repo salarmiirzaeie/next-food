@@ -3,15 +3,16 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="mt-40">
+    <div>
+      <h1>Meals</h1>
       <p>
-        <Link href="/awesome">Awesome</Link>
+        <Link href="/meals/share">Share</Link>
       </p>
       <p>
-        <Link href="/meals">Meals</Link>
+        <Link href="/meals/meal-1">meal1</Link>
       </p>
       <p>
-        <Link href="/blogs">Blogs</Link>
+        <Link href="/meals/meal-2">meal2</Link>
       </p>
     </div>
   );
