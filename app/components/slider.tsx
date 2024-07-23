@@ -31,13 +31,7 @@ const Slider = () => {
 
   return (
     <div>
-      <h1>slider</h1>
       <div style={{ width: "100px", height: "100px", backgroundColor: "red" }}>
-        <ul>
-          {values.map((value) => (
-            <li>{value}</li>
-          ))}
-        </ul>
         <p>{values[value]}</p>
       </div>
     </div>

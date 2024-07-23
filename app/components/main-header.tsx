@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import logoImg from "@/app/assets/images/logo.png";
+import logoImg from "@/assets/images/logo.png";
 import classes from "./main-header.module.css";
 import Image from "next/image";
 import Slider from "./slider";
@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 const MainHeader = () => {
   const path = usePathname();
   return (
-    <header>
+    <header className={classes.header}>
       <Link href="/">
         <Image className={classes.logo} priority src={logoImg} alt="logo" />
       </Link>
