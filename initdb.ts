@@ -1,7 +1,11 @@
 const sql = require("better-sqlite3");
 const db = sql("meals.db");
-
-const dummyMeals = [
+export type Meal = {
+  title: string;
+  image: string;
+  id: string;
+};
+const dummyMeals: Meal[] = [
   {
     title: "Meat",
     image: "/images/pasta.jpg",

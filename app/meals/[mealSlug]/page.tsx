@@ -1,15 +1,19 @@
+import { Meal } from "@/initdb";
+import { getMealsById } from "@/lib/meals";
+import Image from "next/image";
 import React from "react";
 
-const page = ({ params }: { params: { slug: string } }) => {
+const page = ({ params }: { params: { mealSlug: string } }) => {
+  const meals: any = getMealsById(params.mealSlug);
   return (
     <div>
       <header>
-        <h1>{params.slug}</h1>
+        <h1>{meals?.title}</h1>
       </header>
       <main>
-        <p>{params.slug}</p>
+        <p>{meals?.id}</p>
+        <Image src={meals?.image} alt={meals?.title} width={200} height={200} />
       </main>
-      <p>{params.slug}</p>
     </div>
   );
 };

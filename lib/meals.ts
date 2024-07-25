@@ -6,6 +6,6 @@ export async function getMeals() {
   // throw new Error("Something went wrong");
   return db.prepare("SELECT * FROM meals").all();
 }
-export async function getMealsBySlug(slug: string) {
-  return db.prepare("SELECT * FROM meals WHERE slug = ?").get({ slug: slug });
+export function getMealsById(slug: string) {
+  return db.prepare("SELECT * FROM meals WHERE id = ?").get(slug);
 }

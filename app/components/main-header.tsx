@@ -35,6 +35,14 @@ const MainHeader = () => {
               Blogs
             </Link>
           </li>
+          <li>
+            <Link
+              className={path.startsWith("/blogs") ? classes.active : undefined}
+              href="/meals/share"
+            >
+              share
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
