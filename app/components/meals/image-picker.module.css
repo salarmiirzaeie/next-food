@@ -1,0 +1,13 @@
+.hidden {
+  display: none;
+}
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.image {
+  max-width: 50%;
+  max-height: 50%;
+}

@@ -1,9 +1,11 @@
+import ImagePicker from "@/app/components/meals/image-picker";
+import { handleSubmitMeal } from "@/lib/actions";
 import React from "react";
 
 const page = () => {
   return (
     <main className="form-container">
-      <form>
+      <form action={handleSubmitMeal}>
         <h2>Upload Your Image</h2>
         <div className="input-group">
           <label htmlFor="title">Title:</label>
@@ -11,13 +13,7 @@ const page = () => {
         </div>
         <div className="input-group">
           <label htmlFor="image">Choose an Image:</label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            required
-          />
+          <ImagePicker label="Image" name="image" />
         </div>
         <button type="submit">Submit</button>
       </form>
