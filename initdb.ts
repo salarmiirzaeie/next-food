@@ -1,11 +1,7 @@
 const sql = require("better-sqlite3");
 const db = sql("meals.db");
-export type Meal = {
-  title: string;
-  image: string;
-  id: string;
-};
-const dummyMeals: Meal[] = [
+
+const dummyMeals = [
   {
     title: "Meat",
     image: "/images/pasta.jpg",
@@ -50,7 +46,7 @@ const dummyMeals: Meal[] = [
 db.prepare(
   `
   CREATE TABLE IF NOT EXISTS meals (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     image TEXT NOT NULL
   )

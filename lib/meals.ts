@@ -1,6 +1,7 @@
 import sql from "better-sqlite3";
 import xss from "xss";
 import fs from "node:fs";
+import { randomUUID } from "node:crypto";
 const db = sql("meals.db");
 export async function getMeals() {
   await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -13,6 +14,7 @@ export function getMealsById(slug: string) {
 export async function saveMeal(meal: any) {
   meal.title = xss(meal.title);
   const extension = meal.image.name.split(".").pop();
+  meal.id = randomUUID();
   const filename = `${meal.id}.${extension}`;
   const writeStream = fs.createWriteStream(`public/images/${filename}`);
   const bufferedImage = await meal.image.arrayBuffer();
@@ -22,8 +24,7 @@ export async function saveMeal(meal: any) {
     }
   });
   meal.image = `/images/${filename}`;
-  db.prepare("INSERT INTO meals VALUES (@title, @image)").run(
-    meal.title,
-    meal.image
+  db.prepare(`INSERT INTO meals (title, image) VALUES ( @title, @image)`).run(
+    meal
   );
 }

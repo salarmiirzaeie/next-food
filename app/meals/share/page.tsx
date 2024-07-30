@@ -1,3 +1,4 @@
+import PrimaryButton from "@/app/components/buttons/PrimaryButton";
 import ImagePicker from "@/app/components/meals/image-picker";
 import { handleSubmitMeal } from "@/lib/actions";
 import React from "react";
@@ -15,7 +16,7 @@ const page = () => {
           <label htmlFor="image">Choose an Image:</label>
           <ImagePicker label="Image" name="image" />
         </div>
-        <button type="submit">Submit</button>
+        <PrimaryButton title="Submit" />
       </form>
     </main>
   );

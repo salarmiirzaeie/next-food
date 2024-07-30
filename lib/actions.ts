@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
 
 export const handleSubmitMeal = async (fomData: FormData) => {
@@ -8,5 +9,6 @@ export const handleSubmitMeal = async (fomData: FormData) => {
     title: fomData.get("title") as string,
     image: fomData.get("image") as string,
   };
-  saveMeal(meal);
+  await saveMeal(meal);
+  redirect("/meals");
 };
