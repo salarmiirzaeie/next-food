@@ -1,8 +1,20 @@
-import { Meal } from "@/initdb";
 import { getMealsById } from "@/lib/meals";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import React from "react";
-
+export async function generateMetadata({
+  params,
+}: {
+  params: { mealSlug: string };
+}) {
+  const meal: any = await getMealsById(params.mealSlug);
+  if (!meal) {
+    notFound();
+  }
+  return {
+    title: meal?.title,
+  };
+}
 const page = ({ params }: { params: { mealSlug: string } }) => {
   const meals: any = getMealsById(params.mealSlug);
   return (
